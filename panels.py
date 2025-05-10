@@ -71,6 +71,7 @@ class PixelArtMaterialPanel(Panel):
         layout.prop(scene.pixel_props, "color_palette")
         
         # ... tasti per l'invocazione degli operatori ...
-        layout.operator("material.create")
+        #layout.operator("material.create")
         layout.operator("material.palette")
+        layout.operator("material.new_material")
         layout.operator("material.clear_buffers")

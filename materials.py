@@ -252,11 +252,17 @@ class PixelArtMaterialsUtils:
     @staticmethod
     def create_material(name: str, color: PixelizeColor) -> bool:
         """
-        Il metodo gestisce la creazione del materiale
+        the method allows the creation of a new material
         """
-        if name == "" or name in bpy.data.materials: return False
+        if name == "": return False
         
-        # ... creazione dei nodi ...
+        base_name: str = name  # the original name
+        index: int = 1
+        while name in bpy.data.materials:
+            name = f"{base_name}_{index}"
+            index += 1
+        
+        # ... nodes ...
         material = PixelArtMaterialsUtils.new_material(name, "ShaderNodeEmission")
         mapping_node: Node = PixelArtMaterialsUtils.set_mapping_node(material)
         mix_node: Node = PixelArtMaterialsUtils.set_mix_node(material, color)
@@ -272,7 +278,7 @@ class PixelArtMaterialsUtils:
         res_y_node: Node = PixelArtMaterialsUtils.set_res_y_node(material)  # ... idem
         tex_coord_node: Node = PixelArtMaterialsUtils.set_tex_coord(material)
         
-        # ... gestione dei collegamenti ...
+        # ... links ...
         links = material.node_tree.links
         links.new(tex_coord_node.outputs["Window"], separate_node.inputs["Vector"])
         links.new(separate_node.outputs["X"], mul_x_node.inputs[0])
@@ -351,3 +357,36 @@ class ImportColorPalette(Operator):
         
         return {'FINISHED'}
     
+    
+class CreateNewMaterial(Operator):
+    """
+    the operatore allows initializing a new material
+    """
+        
+    bl_idname: str = "material.new_material"
+    bl_label: str = "Create New Material"
+        
+    @staticmethod
+    def execute(self, context: Context):
+        """
+        Il metodo consente l'importazione di una palette cromatica.
+        """
+
+        material_color: PixelizeColor = PixelizeColor(
+            
+            gradients = {
+                0.25: Color((255, 255, 255)),
+                0.5:  Color((255, 255, 255)),
+                0.75: Color((255, 255, 255))
+                },  # carica i gradienti
+            
+            border = Color((0, 0, 0)),
+            dithering = 0.3,
+            light = Color((255, 255, 255)),
+            dark = Color((0, 0, 0))
+                
+        )
+        
+        PixelArtMaterialsUtils.create_material("PixelizeMaterial", material_color)
+        
+        return {'FINISHED'}

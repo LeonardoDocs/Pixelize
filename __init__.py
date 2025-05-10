@@ -1,7 +1,7 @@
 bl_info = {
     "name": "Pixelize",
     "author": "Leonardo Caliendo",
-    "version": (1, 0),
+    "version": (1, 0, 1),
     "blender": (4, 3, 0),
     "description": "Advanced techniques for pixel art rendering",
     "category": "Render",
@@ -34,6 +34,7 @@ def register():
     register_class(camera.CameraMappingGroupSetting)
     register_class(buffers.ClearBuffers)
     register_class(materials.ImportColorPalette)
+    register_class(materials.CreateNewMaterial)
     register_class(render.RenderPixelArt)
     register_class(render.RenderPixelArtPreview)
     register_class(render.RenderPixelArtAnimation)
@@ -58,6 +59,7 @@ def unregister():
     unregister_class(camera.CameraMappingGroupSetting)
     unregister_class(buffers.ClearBuffers)
     unregister_class(materials.ImportColorPalette)
+    unregister_class(materials.CreateNewMaterial)
     unregister_class(render.RenderPixelArt)
     unregister_class(render.RenderPixelArtPreview)
     unregister_class(render.RenderPixelArtAnimation)
