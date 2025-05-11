@@ -5,7 +5,8 @@
 **Important**: The project is based on the incredible work by **Mezaka**, which you can find explained here -> *https://www.youtube.com/watch?v=Cwh_TpouPfQ&t=532s* and here -> *https://www.youtube.com/watch?v=7W2na8OKC8U*
 
 P.S. I apologize for the comments in Italian — the repository was originally intended as a private project. I’ll gradually work on translating them into English.
-A video tutorial on how to use the add-on will be published soon.
+
+Tutorial: https://www.youtube.com/watch?v=Keea2-WRF9s
 
 ## Features
 
