@@ -6,8 +6,7 @@
 
 P.S. I apologize for the comments in Italian — the repository was originally intended as a private project. I’ll gradually work on translating them into English.
 
-Tutorial: https://www.youtube.com/watch?v=Keea2-WRF9s
-
+Tutorial: https://www.youtube.com/watch?v=qP9EYlKM3iM
 ## Features
 
 - Render 3D objects as pixel art sprites
